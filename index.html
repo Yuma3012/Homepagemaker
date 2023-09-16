@@ -1,1 +1,16 @@
-<head>a</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>画像アップロード</title>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>画像をアップロードして白黒に変換する</h1>
+        <input type="file" id="file-input" accept="image/*" required>
+        <button id="convert-button">変換</button>
+    </div>
+    <img id="output-image" style="display:none;">
+    <canvas id="output-canvas" style="display:none;"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
