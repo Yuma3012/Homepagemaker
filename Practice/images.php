@@ -2,26 +2,45 @@
  
 //（2）$_FILEに情報があれば（formタグからpost送信されていれば）以下の処理を実行する
 if(!empty($_FILES)){
- 
-//（3）$_FILESからファイル名を取得する
-$filename = $_FILES['upload_image']['name'];
- 
-//（4）$_FILESから保存先を取得して、images_after（ローカルフォルダ）に移す
-//move_uploaded_file（第1引数：ファイル名,第2引数：格納後のディレクトリ/ファイル名）
-$uploaded_path = 'images_after/'.$filename;
-//echo $uploaded_path.'<br>';
- 
-$result = move_uploaded_file($_FILES['upload_image']['tmp_name'],$uploaded_path);
- 
-if($result){
-  $MSG = 'アップロード成功！ファイル名：'.$filename;
-  $img_path = $uploaded_path;
+
+// images_after フォルダ内のすべてのファイルを削除
+$files = glob('images_after/*'); // フォルダ内のファイル一覧を取得
+foreach ($files as $file) {
+    if (is_file($file)) {
+        unlink($file); // ファイルを削除
+    }
+} 
+
+    //  画像ファイルかどうかを判定する
+    if (exif_imagetype($_FILES['upload_image']['tmp_name'])) {
+        // 画像ファイルの場合の処理
+        //（3）$_FILESからファイル名を取得する
+        $filename = $_FILES['upload_image']['name'];
+
+        //（4）$_FILESから保存先を取得して、images_after（ローカルフォルダ）に移す
+        //move_uploaded_file（第1引数：ファイル名,第2引数：格納後のディレクトリ/ファイル名）
+        $uploaded_path = 'images_after/'.$filename;
+        //echo $uploaded_path.'<br>';
+
+        $result = move_uploaded_file($_FILES['upload_image']['tmp_name'],$uploaded_path);
+
+        if($result){
+
+
+        // 新しい画像のパスを設定
+        $img_path = $uploaded_path;
+        $MSG = 'アップロード成功！ファイル名：'.$filename;
+
+        }else{
+        $MSG = 'アップロード失敗！エラーコード：'.$_FILES['upload_image']['error'];
+        }
+    } else {
+        // 画像ファイルでない場合の処理
+        $MSG = '画像ファイルではありません';
+    }    
+    
 }else{
-  $MSG = 'アップロード失敗！エラーコード：'.$_FILES['upload_image']['error'];
-}
- 
-}else{
-  $MSG = '画像を選択してください';
+$MSG = '画像を選択してください';
 }
 ?>
  
