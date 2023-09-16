@@ -40,7 +40,7 @@ if($result){
  
 <section class="form-container">
  
-<!--  メッセージを表示している箇所-->
+<!--  メッセージを表示している箇所ｙ-->
 <p><?php if(!empty($MSG)) echo $MSG;?></p>
  
   <!-- 画像を表示している箇所 -->
