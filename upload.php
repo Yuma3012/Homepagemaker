@@ -23,18 +23,22 @@ if (!empty($_FILES)) {
         } else {
             $MSG = 'アップロード失敗！エラーコード：' . $_FILES['upload_image']['error'];
         }
+        $template = file_get_contents('copy/index.html');
+        $template = str_replace('{IMG_SRC}', !empty($img_path) ? $img_path : '', $template);
+        echo $template;
     } else {
         // 画像ファイルでない場合の処理
         $MSG = '画像ファイルではありません';
     }
 } else {
     $MSG = '画像を選択してください';
+
 }
 
 // HTMLファイルの読み込み
 $template = file_get_contents('upload.html');
-$template = str_replace('{IMG_SRC}', !empty($img_path) ? $img_path : '', $template);
-$template = str_replace('{MESSAGE}', !empty($MSG) ? $MSG : '', $template);
+// $template = str_replace('{IMG_SRC}', !empty($img_path) ? $img_path : '', $template);
+// // $template = str_replace('{MESSAGE}', !empty($MSG) ? $MSG : '', $template);
 
 echo $template;
 ?>

@@ -1,5 +1,5 @@
 // 送信ボタンを押したときにファイル選択、送信ボタンを非表示にし、やり直しボタンを表示する
-const Uploadform = document.getElementById('upload-form')
+const Uploadform = document.getElementById('load-button')
 Uploadform.addEventListener('submit', function () {
     document.querySelector('.form-container').style.display = 'none';
     document.querySelector('.result').style.display = 'block';
