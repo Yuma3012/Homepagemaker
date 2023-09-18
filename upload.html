@@ -9,17 +9,18 @@
 <body>
 <main>
     <section class="form-container">
-        <button type="button"  onclick="location.href='copy/index.html'"id="load-button">遷移</button>
+        <button type="button"  onclick="location.href='copy/index.html'" id="load-button">遷移</button>
         <!-- （1）form タグからpost送信する -->
         <form action="" method="post" enctype="multipart/form-data" id="upload-form">
             <!-- input 属性はtype="file" と指定 -->
-            <input type="file" name="upload_image" accept="image/*" required id="file-input">
-            <label for="input-text">テキスト入力:</label>
-            <input type="text" name="input_text" id="input-text" required>
+            <input type="file" name="upload_image" accept="image/*" id="file-input" required>
+            <label for="input-text">名前:</label>
+            <input type="text" name="name_text" id="name-text" required>
+            <label for="input-text">自由記入欄:</label>
+            <input type="text" name="free_text" id="free-text" >
             <!-- 送信ボタン -->
-            <input type="submit" class="btn_submit" value="送信" id="submit-button" >
+            <input type="submit" class="btn_submit" value="生成" id="submit-button" >
     </section>
-     <!-- メッセージを表示している箇所 -->
      <!-- メッセージを表示している箇所 -->
      <p><?php echo isset($MSG) ? $MSG : ''; ?></p>
     <!-- 画像を表示している箇所 -->

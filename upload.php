@@ -2,14 +2,13 @@
 
 $text_input = '';
 
-if (isset($_POST['input_text'])) {
-    $text_input = $_POST['input_text'];
+// if (isset($_POST['input_text'])) {
+//     $text_input = $_POST['input_text'];
 
-    // 処理が成功した場合、result.html を表示
-    $template = file_get_contents('result.html');
-    $text = str_replace('{TEXT}', !empty($img_path) ? $img_path : '', $template);
-    echo $image;
-}
+//     // 処理が成功した場合、result.html を表示
+//     $template = file_get_contents('result.html');
+//     $TEXT = $text_input;
+// }
 
 if (!empty($_FILES)) {
     // images_after フォルダ内のすべてのファイルを削除
@@ -30,13 +29,22 @@ if (!empty($_FILES)) {
 
         if ($result) {
             // 新しい画像のパスを設定
-            $img_path = $uploaded_path;
+            $IMG_SRC = $uploaded_path;
             $MSG = 'アップロード成功！ファイル名：' . $filename;
 
             // 処理が成功した場合、result.html を表示
-            $template = file_get_contents('result.html');
-            $image = str_replace('{IMG_SRC}', !empty($img_path) ? $img_path : '', $template);
-            echo $image;
+            // $template = file_get_contents('result.html');
+            // $image = str_replace('{IMG_SRC}', !empty($img_path) ? $img_path : '', $template);
+            
+            // echo $image;
+            // アップロードされたテキストを取得
+            if (isset($_POST['name_text'])) {
+                $Name_text = $_POST['name_text'];
+            }
+            if (isset($_POST['free_text'])) {
+                $Free_text = $_POST['free_text'];
+            }
+            include('result.html');
         } else {
             // 処理が失敗した場合、upload.html を再表示
             include('upload.html');

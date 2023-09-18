@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>矢部 潔のホームページ</title>
+    <title><?php echo isset($Name_text) ? $Name_text : ''; ?>のホームページ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/sidebar.css">
@@ -21,60 +21,63 @@
                 </a>
             </li>
             <li class="sideLink sideLinkMovie">
-                <a href="./index.html">
+                <a href="#">
                     映画出演
                 </a>
             </li>
             <li class="sideLink sideLinkDrama">
-                <a href="./index.html">
+                <a href="#">
                     ドラマ出演
                 </a>
             </li>
             <li class="sideLink sideLinkStage">
-                <a href="./index.html">
+                <a href="#">
                     舞台出演
                 </a>
             </li>
             <li class="sideLink sideLinkPhotobook">
-                <a href="./index.html">
+                <a href="#">
                     写真集
                 </a>
             </li>
             <li class="sideLink sideLinkBook">
-                <a href="./index.html">
+                <a href="#">
                     出版本
                 </a>
             </li>
             <li class="sideLink sideLinkManager">
-                <a href="./index.html">
+                <a href="#">
                     管理者
                 </a>
             </li>
+            <button type="button"  onclick= "location.href='upload.php'">やり直し</button>
         </ul>
     </div>
     <!-- メインカラム -->
     <div class="mainColumn">
         <div class="mainColumnTop">
             <h1>
-                <?php echo htmlspecialchars($text_input); ?>のホームページ
+                <?php echo isset($Name_text) ? $Name_text : ''; ?>のホームページ
             </h1>
             <div class="topBody">
                 <!-- 左エリア -->
                 <div class="topBodyLeft">
                     <!-- <img class="topProfileImg" src="./src/image/top.jpg" /> -->
-                    <img class="topProfileImg" src="{IMG_SRC}" alt="" width="350" height="414">
+                    <?php if (isset($IMG_SRC)) : ?>
+                    <img class="topProfileImg" src="<?php echo $IMG_SRC; ?>" alt="" width="350" height="414">
+                    <?php endif; ?>
                     <div class="topProfileItem">
                         <div>
-                            矢部 潔（やべ きよし）
+                            <?php echo isset($Name_text) ? $Name_text : ''; ?>（ふりがな）
                         </div>
                         <div>
-                            生年月日 1973年6月12日
+                            生年月日 1964年6月24日
                         </div>
                         <div>
                             血液型 A型    
                         </div>
                         <div>
-                            <a href="./index.html">
+                            <a href="#">
                                 プロフィール
                             </a>
                         </div>
@@ -83,7 +86,7 @@
                         If you have any enquiries regarding my TV drama or film, or would like to make an enquiry concerning future projects, please do not hesitate to contact me through the following email address.
                     </div>
                     <div class="topProfileItem">
-                        mail:<a href="yabe.kiyoshi@example.com">yabe.kiyoshi@example.com</a>
+                        mail:<a href="#">abehiroshi@example.com</a>
                     </div>
                     <div class="topProfileItem">
                         <div>
@@ -112,50 +115,11 @@
                         ★★★ 最新情報 ★★★
                     </div>
                     <div class="topInfoItem">
-                        <div>
-                            ・ドラマ
-                        </div>
                         <div class="topInfoItemBody">
-                            <div>
-                                <a href="#">「逆転のシナリオ」</a><span class="textEmphasized">New!</span>
-                            </div>
-                            <div>
-                                2023年5月10日〜
-                            </div>
-                            <div>
-                                <a href="#">追憶の鍵</a>
-                            </div>
-                            <div>
-                                2023年9月スタート
-                            </div>
+                            <?php echo isset($Free_text) ? $Free_text : ''; ?>
                         </div>
                     </div>
-                    <div class="topInfoItem">
-                        <div>
-                            ・映画
-                        </div>
-                        <div class="topInfoItemBody">
-                            <div>
-                                「<a href="#">衝動</a>」
-                            </div>
-                            <div>
-                                2023年10月20日公開
-                            </div>
-                        </div>
-                    </div>
-                    <div class="topInfoItem">
-                        <div>
-                            ・TV
-                        </div>
-                        <div class="topInfoItemBody">
-                            <div>
-                                「<a href="#">人生リセットプロジェクト</a>」
-                            </div>
-                            <div>
-                                2023年12月放送開始
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="topInfoItem">
                         <div>
                             このサイトはまったくのダミーサイトです。
