@@ -13,15 +13,17 @@
         <!-- （1）form タグからpost送信する -->
         <form action="" method="post" enctype="multipart/form-data" id="upload-form">
             <!-- input 属性はtype="file" と指定 -->
-            <input type="file" name="upload_image" id="file-input">
+            <input type="file" name="upload_image" accept="image/*" required id="file-input">
+            <label for="input-text">テキスト入力:</label>
+            <input type="text" name="input_text" id="input-text" required>
             <!-- 送信ボタン -->
             <input type="submit" class="btn_submit" value="送信" id="submit-button" >
-        </form>
     </section>
      <!-- メッセージを表示している箇所 -->
-     <p>{MESSAGE}</p>
+     <!-- メッセージを表示している箇所 -->
+     <p><?php echo isset($MSG) ? $MSG : ''; ?></p>
     <!-- 画像を表示している箇所 -->
-    <!-- <img src="{IMG_SRC}" alt=""> -->
+    <img src="{IMG_SRC}" alt="">
     <section class="result" style="display: none;">
          <!-- やり直しボタン -->
          <button type="button"  id="reset-button" style="display:none;">やり直し</button>
