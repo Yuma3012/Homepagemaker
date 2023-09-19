@@ -1,21 +1,24 @@
-/* .mainColumnTop{
+.mainColumnTop{
     padding: 0 10%;
-    background-image: url(../src/image/abehiroshi.jpg);
-    background-repeat: repeat;
-} */
+    position      : relative;             /* 親要素               */
+    /* background-image: url(../src/image/abehiroshi.jpg);
+    background-repeat: repeat; */
+}
  /* --- 背景透かし文字の定義 -----------------------------------*/
- .mainColumnTop .backStr {
-    position      : absolute;             /* 親要素からの相対位置 */
-    display       : inline-block;         /* インラインブロック化 */
-    white-space   : nowrap;               /* 折り返ししない       */
-    font-size     : 25pt;                 /* 背景透かし文字サイズ */
-    font-weight   : bold;                 /* 太字                 */
-    color         : #99ff99; /* 背景透かし文字色     */
-                                          /* 中心寄せ＆角度       */
-    top           : 50%;
-    left          : 50%;
-    transform     : translate(-50%, -50%)
-  }
+.mainColumnTop .backStr {
+    position: absolute;             /* 親要素からの相対位置 */
+    display: inline-block;         /* インラインブロック化 */
+    white-space: nowrap;           /* 折り返ししない       */
+    font-size: 50pt;               /* 背景透かし文字サイズ */
+    font-weight: bold;             /* 太字                 */
+    color: #99ff99;                /* 背景透かし文字色     */
+    /* 角度       */
+    top:10%;
+    transform: translate(-50%, -50%);
+    z-index: -1;                  /* テキストを背景の下に配置 */
+    opacity: 0.5; /* テキストの透明度を調整（任意） */
+    word-wrap: break-word;
+}
 
 .topBody{
     display: flex;

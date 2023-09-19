@@ -23,4 +23,7 @@ function insertTemplate() {
     freeTextElement.value = templateText;
 }
 
-
+const backStr = document.querySelector(".backStr");
+    for (let i = 0; i < 100; i++) {
+      backStr.innerHTML += romeText ;
+    }

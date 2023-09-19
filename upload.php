@@ -10,6 +10,11 @@ $result = '';
 if (isset($_POST['name_text']) && isset($_POST['rome_text'])) {
     $Name_text = $_POST['name_text'];
     $Rome_text = $_POST['rome_text'];
+    // $romeTextをJavaScriptに渡す例
+    echo "<script>";
+    echo "var romeText = '" . addslashes($Rome_text) . "';";
+    echo "console.log(romeText);"; // デバッグ用
+    echo "</script>";
 
     if (isset($_POST['free_text'])) {
         $Free_text = nl2br($_POST['free_text']);
