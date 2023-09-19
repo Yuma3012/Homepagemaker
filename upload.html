@@ -12,14 +12,20 @@
         <button type="button"  onclick="location.href='copy/index.html'" id="load-button">遷移</button>
         <!-- （1）form タグからpost送信する -->
         <form action="" method="post" enctype="multipart/form-data" id="upload-form">
-            <!-- input 属性はtype="file" と指定 -->
-            <input type="file" name="upload_image" accept="image/*" id="file-input" required>
             <label for="input-text">名前:</label>
             <input type="text" name="name_text" id="name-text" required>
-            <label for="input-text">自由記入欄:</label>
-            <input type="text" name="free_text" id="free-text" >
-            <!-- 送信ボタン -->
-            <input type="submit" class="btn_submit" value="生成" id="submit-button" >
+            <label for="input-text">ローマ字:</label>
+            <input type="text" name="rome_text" id="rome-text" required>
+            <!-- input 属性はtype="file" と指定 -->
+            <div>
+                <input type="file" name="upload_image" accept="image/*" id="file-input" required>
+                <label for="input-text">自由記入欄:</label>
+                <input type="text" name="free_text" id="free-text" >
+            </div>    
+            <div>
+                <!-- 送信ボタン -->
+                <input type="submit" class="btn_submit" value="生成" id="submit-button" >
+            </div>
     </section>
      <!-- メッセージを表示している箇所 -->
      <p><?php echo isset($MSG) ? $MSG : ''; ?></p>

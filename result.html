@@ -68,7 +68,7 @@
                     <?php endif; ?>
                     <div class="topProfileItem">
                         <div>
-                            <?php echo isset($Name_text) ? $Name_text : ''; ?>（ふりがな）
+                            <?php echo isset($Name_text) ? $Name_text : ''; ?>（<?php echo isset($Rome_text) ? $Rome_text : ''; ?>）
                         </div>
                         <div>
                             生年月日 1964年6月24日
@@ -86,7 +86,7 @@
                         If you have any enquiries regarding my TV drama or film, or would like to make an enquiry concerning future projects, please do not hesitate to contact me through the following email address.
                     </div>
                     <div class="topProfileItem">
-                        mail:<a href="#">abehiroshi@example.com</a>
+                        mail:<a href="#"><?php echo isset($Rome_text) ? $Rome_text : ''; ?>@example.com</a>
                     </div>
                     <div class="topProfileItem">
                         <div>

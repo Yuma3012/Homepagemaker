@@ -2,13 +2,6 @@
 
 $text_input = '';
 
-// if (isset($_POST['input_text'])) {
-//     $text_input = $_POST['input_text'];
-
-//     // 処理が成功した場合、result.html を表示
-//     $template = file_get_contents('result.html');
-//     $TEXT = $text_input;
-// }
 
 if (!empty($_FILES)) {
     // images_after フォルダ内のすべてのファイルを削除
@@ -40,6 +33,9 @@ if (!empty($_FILES)) {
             // アップロードされたテキストを取得
             if (isset($_POST['name_text'])) {
                 $Name_text = $_POST['name_text'];
+            }
+            if (isset($_POST['rome_text'])) {
+                $Rome_text = $_POST['rome_text'];
             }
             if (isset($_POST['free_text'])) {
                 $Free_text = $_POST['free_text'];
