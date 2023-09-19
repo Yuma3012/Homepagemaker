@@ -1,8 +1,21 @@
-.mainColumnTop{
+/* .mainColumnTop{
     padding: 0 10%;
     background-image: url(../src/image/abehiroshi.jpg);
     background-repeat: repeat;
-}
+} */
+ /* --- 背景透かし文字の定義 -----------------------------------*/
+ .mainColumnTop .backStr {
+    position      : absolute;             /* 親要素からの相対位置 */
+    display       : inline-block;         /* インラインブロック化 */
+    white-space   : nowrap;               /* 折り返ししない       */
+    font-size     : 25pt;                 /* 背景透かし文字サイズ */
+    font-weight   : bold;                 /* 太字                 */
+    color         : #99ff99; /* 背景透かし文字色     */
+                                          /* 中心寄せ＆角度       */
+    top           : 50%;
+    left          : 50%;
+    transform     : translate(-50%, -50%)
+  }
 
 .topBody{
     display: flex;

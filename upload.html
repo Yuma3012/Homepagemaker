@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$_FILESの基本</title>
 </head>
-<script src="reload.js"></script>
+<link rel="stylesheet" href="common.css">
+<script src="script.js"></script>
 <body>
 <main>
     <section class="form-container">
@@ -17,10 +18,11 @@
             <label for="input-text">ローマ字:</label>
             <input type="text" name="rome_text" id="rome-text" required>
             <!-- input 属性はtype="file" と指定 -->
+                <input type="file" name="upload_image" accept="image/*" id="file-input" >
             <div>
-                <input type="file" name="upload_image" accept="image/*" id="file-input" required>
-                <label for="input-text">自由記入欄:</label>
-                <input type="text" name="free_text" id="free-text" >
+                <label for="free-text">自由記入欄:</label>
+                <textarea name="free_text" id="free-text" rows="4" cols="50"></textarea>
+                <button type="button" onclick="insertTemplate()">テンプレートを挿入</button>
             </div>    
             <div>
                 <!-- 送信ボタン -->
