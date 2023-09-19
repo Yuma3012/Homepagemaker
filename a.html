@@ -2,14 +2,21 @@
     .backStr {
       word-wrap: break-word;
     }
+    .backStrDisplay {
+      word-break: normal;
+    }
   </style>
   
-  <div class="backStr"></div>
   
+  <div id = "back" style="display: none;">こんにちはさよならa</div>
+  <div class="backStr"></div>
+
   <script>
     const backStr = document.querySelector(".backStr");
+    const text = document.getElementById('back');
     for (let i = 0; i < 100; i++) {
-      backStr.innerHTML += "aaa";
+    backStr.innerHTML += text.textContent;
     }
+
   </script>
   

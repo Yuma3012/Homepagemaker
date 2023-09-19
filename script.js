@@ -24,6 +24,7 @@ function insertTemplate() {
 }
 
 const backStr = document.querySelector(".backStr");
-    for (let i = 0; i < 100; i++) {
-      backStr.innerHTML += romeText ;
-    }
+const text = document.getElementById('back');
+for (let i = 0; i < 20; i++) {
+backStr.innerHTML += text.textContent;
+}

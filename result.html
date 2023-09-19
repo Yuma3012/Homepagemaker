@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/top.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
 </head>
 
 <body>
@@ -57,9 +56,11 @@
     <!-- メインカラム -->
     <div class="mainColumn">
         <div class="mainColumnTop">
-            <div class="backStr">
+            <div  id="back" style="display: none;">
                 <?php echo isset($Rome_text) ? $Rome_text : ''; ?>
+                
             </div>
+            <div class="backStr"></div>
             <h1>
                 <?php echo isset($Name_text) ? $Name_text : ''; ?>のホームページ
             </h1>
@@ -137,5 +138,12 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const backStr = document.querySelector(".backStr");
+        const text = document.getElementById('back');
+        for (let i = 0; i < 500; i++) {
+        backStr.innerHTML += text.textContent;
+        }
+    
+      </script>  
 </body>
