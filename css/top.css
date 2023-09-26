@@ -1,0 +1,63 @@
+.mainColumnTop{
+    padding: 0 10%;
+    position      : relative;             /* 親要素               */
+    /* background-image: url(../src/image/abehiroshi.jpg);
+    background-repeat: repeat; */
+}
+ /* --- 背景透かし文字の定義 -----------------------------------*/
+.mainColumnTop .backStr {
+    padding: 0 10%;
+    position: absolute;             /* 親要素からの相対位置 */
+    font-size: 50pt;               /* 背景透かし文字サイズ */
+    font-family: 'Times New Roman';
+    font-style:italic;
+    color: #99ff99;                /* 背景透かし文字色     */
+    /* 角度       */
+    /* top:10%; */
+    transform: translate(-50%, -50%);
+    z-index: -1;                  /* テキストを背景の下に配置 */
+    opacity: 0.5; /* テキストの透明度を調整（任意） */
+    width: 200%;
+    word-wrap: break-word;
+}
+
+.topBody{
+    display: flex;
+}
+
+.topBodyLeft{
+    width: 40%;
+}
+
+.topBodyRight{
+    width: 60%;
+}
+
+.topProfileItem{
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    width: 70%;
+}
+
+.topInfoHeader{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.topInfoItem{
+    border-top: 0.5px solid #000000;
+    font-weight: bold;
+    padding: 1rem 0;
+}
+
+.topProfileImg{
+    width: 95%;
+}
+
+.textEmphasized{
+    color: rgb(232, 38, 38);
+}
+
+.topInfoItemBody{
+    margin-left: 4rem;
+}

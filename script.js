@@ -1,44 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const fileInput = document.getElementById('file-input');
-    const convertButton = document.getElementById('convert-button');
-    const outputImage = document.getElementById('output-image');
-    const outputCanvas = document.getElementById('output-canvas');
-    const uploadContainer = document.querySelector('.upload-container'); // div 要素を取得
-
-    convertButton.addEventListener('click', function() {
-        const file = fileInput.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                outputImage.src = e.target.result;
-                outputImage.style.display = 'block';
-
-                // 画像を白黒に変換
-                convertToGrayscale(outputImage, outputCanvas);
-                // div 要素を非表示にする
-                uploadContainer.style.display = 'none';
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    function convertToGrayscale(image, canvas) {
-        const ctx = canvas.getContext('2d');
-        canvas.width = image.width;
-        canvas.height = image.height;
-        ctx.drawImage(image, 0, 0, image.width, image.height);
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const data = imageData.data;
-
-        for (let i = 0; i < data.length; i += 4) {
-            const grayscale = (data[i] + data[i + 1] + data[i + 2]) / 3;
-            data[i] = grayscale;
-            data[i + 1] = grayscale;
-            data[i + 2] = grayscale;
-        }
-
-        ctx.putImageData(imageData, 0, 0);
-        image.src = canvas.toDataURL('image/png');
-    }
+// 送信ボタンを押したときにファイル選択、送信ボタンを非表示にし、やり直しボタンを表示する
+const Uploadform = document.getElementById('load-button')
+Uploadform.addEventListener('submit', function () {
+    document.querySelector('.form-container').style.display = 'none';
+    document.querySelector('.result').style.display = 'block';
 });
+
+// やり直しボタンをクリックしたときにファイル選択と送信ボタンを表示する
+document.getElementById('reset-button').addEventListener('click', function () {
+    document.querySelector('.result').style.display = 'none';
+    document.querySelector('.form-container').style.display = 'block';
+});
+
+
+function insertTemplate() {
+    // テキスト「こんにちは」を取得
+    var templateText = "・ドラマ\n「リオレウス桜」New!\nテレビ東京 10月13日（金）深夜24時52分スタート!\n日曜劇場「VALORANT」\n2023年7月16日(日)スタート\n2023年 大河ドラマ「どうもしません家康」\n2023年1月8日(日)スタート";
+    
+    // 自由記入欄の要素を取得
+    var freeTextElement = document.getElementById("free-text");
+    
+    // 自由記入欄にテンプレートテキストを挿入
+    freeTextElement.value = templateText;
+}
+
+const backStr = document.querySelector(".backStr");
+const text = document.getElementById('back');
+for (let i = 0; i < 20; i++) {
+backStr.innerHTML += text.textContent;
+}
