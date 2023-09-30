@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+/* ボタンのスタイル */
+.btn_submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  height: 64px;
+  padding: 8px 24px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  overflow-wrap: anywhere;
+  background-color: #6fa24a;
+  border-radius: 32px; /* (buttonの高さ / 2) の値 */
+}
+
+@media (any-hover: hover) {
+  .btn_submit {
+    transition: background-color 0.2s;
+  }
+
+  .btn_submit:hover {
+    background-color: #54802f;
+  }
+}

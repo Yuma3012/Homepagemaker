@@ -69,6 +69,5 @@ if (isset($_POST['name_text']) && isset($_POST['rome_text'])) {
     }
 }
 
-// upload.html を表示
-include('upload.html');
+
 ?>

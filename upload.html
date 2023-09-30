@@ -3,26 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$_FILESの基本</title>
+    <title>ホームページメーカー</title>
 </head>
 <link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="button.css">
 <script src="script.js"></script>
 <body>
+    <h1>オリジナルの阿〇寛風ホームページを生成</h1>
 <main>
+    <a>※<span class="required">*</span>は必須入力</a>
     <section class="form-container">
-        <button type="button"  onclick="location.href='copy/index.html'" id="load-button">遷移</button>
+        <!-- <button type="button"  onclick="location.href='copy/index.html'" id="load-button">遷移</button> -->
         <!-- （1）form タグからpost送信する -->
         <form action="" method="post" enctype="multipart/form-data" id="upload-form">
-            <label for="input-text">名前:</label>
-            <input type="text" name="name_text" id="name-text" required>
-            <label for="input-text">ローマ字:</label>
-            <input type="text" name="rome_text" id="rome-text" required>
+            <label for="input-text">
+                名前
+                <span class="required">*</span>
+            </label>
+            <input type="text" name="name_text" id="name-text" placeholder="阿部　武" required>
+            <label for="input-text">
+                ローマ字
+                <span class="required">*</span>
+            </label>
+            <input type="text" name="rome_text" id="rome-text" required pattern="[A-Za-z\s]+" placeholder="ABE TAKESHI" title="英字と半角空白のみ入力してください" required >
+            <div>
             <!-- input 属性はtype="file" と指定 -->
                 <input type="file" name="upload_image" accept="image/*" id="file-input" >
+                <label for="ymd">生年月日</label>
+                <input type="date" name="ymd" value="1964-06-22">
+                <label for="blood-type">血液型</label>
+                <select name="blood-type" name="blood-type" value="A">
+                    <option value="A">A型</option>
+                    <option value="B">B型</option>
+                    <option value="AB">O型</option>
+                    <option value="O">AB型</option>
+                </select>
+            </div>
             <div>
-                <label for="free-text">自由記入欄:</label>
+                <label for="free-text">自由記入欄</label>
+            </div>
+            <div>   
                 <textarea name="free_text" id="free-text" rows="4" cols="50"></textarea>
-                <button type="button" onclick="insertTemplate()">テンプレートを挿入</button>
+                <button type="button"  onclick="insertTemplate()">テンプレートを挿入</button>
             </div>    
             <div>
                 <!-- 送信ボタン -->

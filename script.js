@@ -28,3 +28,21 @@ const text = document.getElementById('back');
 for (let i = 0; i < 20; i++) {
 backStr.innerHTML += text.textContent;
 }
+
+// 入力された画像のプレビュー表示
+function previewImage(event) {
+    const input = event.target;
+    const imagePreview = document.getElementById('image-preview');
+
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        imagePreview.src = '';
+    }
+}

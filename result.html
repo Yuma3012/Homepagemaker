@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/top.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="button.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
     <div class="sidebar">
         <ul>
             <li class="sideLink sideLinkTop">
-                <a href="./upload.php">
+                <a href="#">
                     トップ
                 </a>
             </li>
@@ -50,7 +51,7 @@
                     管理者
                 </a>
             </li>
-            <button type="button"  onclick= "location.href='upload.php'">やり直し</button>
+            <button type="button" class="btn_submit" onclick= "location.href='index.html'">やり直し</button>
         </ul>
     </div>
     <!-- メインカラム -->
@@ -76,10 +77,10 @@
                             <?php echo isset($Name_text) ? $Name_text : ''; ?>（<?php echo isset($Rome_text) ? $Rome_text : ''; ?>）
                         </div>
                         <div>
-                            生年月日 1964年6月24日
+                            生年月日 <?php echo isset($formattedDate) ? $formattedDate : ''; ?>
                         </div>
                         <div>
-                            血液型 A型    
+                            血液型  <?php echo isset($bloodtype) ? $bloodtype : ''; ?>型   
                         </div>
                         <div>
                             <a href="#">
@@ -144,6 +145,7 @@
         for (let i = 0; i < 500; i++) {
         backStr.innerHTML += text.textContent;
         }
-    
+
+
       </script>  
 </body>
