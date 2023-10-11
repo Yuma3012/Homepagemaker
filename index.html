@@ -1,16 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>画像アップロード</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホームページメーカー</title>
 </head>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="button.css">
+<link rel="stylesheet" href="demo.css">
+<script src="script.js"></script>
 <body>
-    <div class="upload-container">
-        <h1>画像をアップロードして白黒に変換する</h1>
-        <input type="file" id="file-input" accept="image/*" required>
-        <button id="convert-button">変換</button>
-    </div>
-    <img id="output-image" style="display:none;">
-    <canvas id="output-canvas" style="display:none;"></canvas>
-    <script src="script.js"></script>
+    
+<main>
+
+<div class="box_con04">
+  <h1>阿〇寛風ホームページメーカー</h1>
+  <li>名前、ふりがな等を入力すると、オリジナルの阿〇寛風ホームページを生成することができます!</li>
+  <li>※読み込み速度は本家ほど爆速ではないので、読み込みを繰り返すと通信容量が回復するなどといった効果はありません。</li>
+  <li><a href="http://abehiroshi.la.coocan.jp/">本家様</a></li>
+  <form method="post" action="upload2.php">
+  <ul class="formTable">
+    <li>
+      <p class="title"><em>ふりがな(ローマ字)<span>必須</span></em></p>
+      <div class="box_det"><input size="30" type="text" class="wide" name="rome_text" id="rome-text" required pattern="[A-Za-z\s]+" placeholder="ABE TAKESHI" title="英字と半角空白のみ入力してください" required /></div>
+    </li>
+    <li>
+      <p class="title"><em>名前<span>必須</span></em></p>
+      <div class="box_det"><input size="20" type="text" class="wide" name="name_text" id="name-text" placeholder="阿部　武" required/></div>
+    </li>
+    <li>
+      <p class="title"><em>写真</em></p>
+      <div class="box_det">
+        <input size="20" type="file" class="wide" name="upload_image" accept="image/*" id="file-input" onchange="previewImage(event)">
+        <div class="image-preview-container">
+          <img id="image-preview" src="images\default\preview.png" alt="" width="80" height="100">
+        </div>
+      </div>  
+    </li>
+    <li>
+      <p class="title"><em>生年月日・血液型</em></p>
+      <div class="box_det">
+          <div class="inline-inputs">
+              <input size="30" type="date" class="wide" name="ymd" value="1964-06-22" />
+              <select name="blood-type" class="blood-type" value="A">
+                  <option value="A">A型</option>
+                  <option value="B">B型</option>
+                  <option value="AB">O型</option>
+                  <option value="O">AB型</option>
+              </select>
+          </div>
+      </div>
+   </li>
+   <li>
+      <p class="title"><em>自由記入欄</em></p>
+      <div class="box_det">
+          <textarea name="free_text" id="free-text" cols="50" rows="5"></textarea>
+          
+            <button type="button" onclick="insertTemplate()">テンプレートを挿入</button>
+          
+      </div>
+   </li>
+  
+  </ul>
+  <li>
+    ※このサイトで入力された名前、生年月日等の個人情報は、ホームページを生成するための目的以外では使用いたしません。
+  </li>
+  <p class="btn">
+      <span><input type="submit" class="btn_submit" value="生成" id="submit-button" /></span>
+  </p>
+</form>
+<script src="script.js"></script>
+</div>
+</main>
 </body>
 </html>
